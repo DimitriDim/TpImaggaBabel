@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' http://* 'unsafe-inline' 'unsafe-inline'; img-src 'self' data:"
+    />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="./node_modules/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="./node_modules/material-design-icons/iconfont/material-icons.css">
+    <script type="text/javascript" src="./node_modules/material-design-lite/material.min.js"></script>
+
+    <title>Hello World</title>
+</head>
+
+<body>
+    <link href='https://fonts.googleapis.com/css?family=Croissant+One' rel='stylesheet' type='text/css'>
+
+    <h1 class="style">Extract color</h1>
+
+    <div class="upload mdl-grid center-items" upload-image="">
+        <input type="file" id="input" name="files" class="input-file ng-pristine ng-valid ng-touched" files-model="" ng-model="project.fileList">
+        <label for="files">
+            <span class="add-image">
+                Mon
+                <br> image
+            </span>
+            <output id="list"></output>
+        </label>
+    </div>
+
+    <!-- Image card -->
+    <div class="mdl-grid center-items">
+        <table id="color-list" class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp"></table>
+        <div class="mdl-cell mdl-cell--4-col">
+            <div class="demo-card-image mdl-card mdl-shadow--2dp">
+
+                <div class="mdl-card__actions">
+                    <span class="demo-card-image__filename">
+                    </span>
+                </div>
+                <div class="mdl-card__title mdl-card--expand mdl-grid center-items">
+                    <img id="output" height="100%" width="100%" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <wait id="wait"></wait>
+
+    <script src="./dist/index.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+
+    <!-- script de compatibilité -->
+    <script>
+        var elements = ["wait"]
+        for (var key in elements)
+            window.document.createElement(elements[key]);
+    </script>
+    <style>
+        wait {
+            display: block;
+            width: 100%;
+        }
+    </style>
+
+</body>
+
+</html>
